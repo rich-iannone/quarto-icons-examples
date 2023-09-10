@@ -1,0 +1,26 @@
+---
+format: html
+---
+
+This is an example of how to include Font Awesome icons in an HTML article. The shortcode works by using this basic construction:
+
+`{{{< fa [brands] <icon-name> [additional args] >}}}` 
+
+Here is a Font Awesome icon within inline text: {{< fa thumbs-up >}}. This uses the display defaults (i.e., no extra arguments).
+
+Here is an icon using the relative sizing with `"size=lg"`: {{< fa envelope size=lg >}}.
+
+Sizing to `"2em"` with literal sizing (uses the `"size=<1-10>x"` construction): {{< fa battery-half size=2x >}}.
+
+We can use icons in a Markdown table.
+
+| Shortcode                                          | Icon                                      |
+| -------------------------------------------------- | ----------------------------------------- |
+| `{{{< fa thumbs-up >}}}`                           | {{< fa thumbs-up >}}                      |
+| `{{{< fa folder >}}}`                              | {{< fa folder >}}                         |
+| `{{{< fa chess-pawn >}}}`                          | {{< fa chess-pawn >}}                     |
+| `{{{< fa brands bluetooth >}}}`                    | {{< fa brands bluetooth >}}               |
+| `{{{< fa brands twitter size=2xl >}}}`             | {{< fa brands twitter size=2xl >}}        |
+| `{{{< fa brands github size=5x >}}}`               | {{< fa brands github size=5x >}}          |
+| `{{{< fa battery-half size=Huge >}}}`              | {{< fa battery-half size=Huge >}}         |
+| `{{{< fa envelope title="An envelope" >}}}`        | {{< fa envelope title="An envelope" >}}   |
