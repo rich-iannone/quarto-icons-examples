@@ -4,23 +4,92 @@ format: html
 
 This is an example of how to include Font Awesome icons in an HTML article. The shortcode works by using this basic construction:
 
-`{{{< fa [brands] <icon-name> [additional args] >}}}` 
+`{{{< fa [brands] <icon-name> [additional args] >}}}`
 
-Here is a Font Awesome icon within inline text: {{< fa thumbs-up >}}. This uses the display defaults (i.e., no extra arguments).
+Note that if you're seeing the source version of this document (i.e., the .qmd file), the above has three curly braces on each side. That's a way to escape the shortcode syntax and when rendered: (1) one set of `{` & `}` characters will be stripped off (showing the actual shortcode syntax), and (2) the code within this pseudo-shortcode won't be executed. Also, the backticks in the source are needed for this to work (not including them results in that text not being visible in the rendered document).
 
-Here is an icon using the relative sizing with `"size=lg"`: {{< fa envelope size=lg >}}.
+Any of the free icons from Font Awesome Version 5 can be used. Some of free icons are in the 'brands' set (e.g., `"apple"`, `"uber"`, `"github"`, etc.) and these need to use the sequence of `fa brands <icon-name>`.
 
-Sizing to `"2em"` with literal sizing (uses the `"size=<1-10>x"` construction): {{< fa battery-half size=2x >}}.
+Here is the `"thumbs-up"` Font Awesome icon: {{< fa thumbs-up >}}. By default, it is sized match the inline text. The GitHub icon is next: {{< fa brands github >}}.
 
-We can use icons in a Markdown table.
+We can use shortcodes to generate icons in a Markdown table. In the following table, the first column provides the escaped version of the shortcode (renders as the input syntax for the shortcode) and the second column actually generates icons.
 
-| Shortcode                                          | Icon                                      |
-| -------------------------------------------------- | ----------------------------------------- |
-| `{{{< fa thumbs-up >}}}`                           | {{< fa thumbs-up >}}                      |
-| `{{{< fa folder >}}}`                              | {{< fa folder >}}                         |
-| `{{{< fa chess-pawn >}}}`                          | {{< fa chess-pawn >}}                     |
-| `{{{< fa brands bluetooth >}}}`                    | {{< fa brands bluetooth >}}               |
-| `{{{< fa brands twitter size=2xl >}}}`             | {{< fa brands twitter size=2xl >}}        |
-| `{{{< fa brands github size=5x >}}}`               | {{< fa brands github size=5x >}}          |
-| `{{{< fa battery-half size=Huge >}}}`              | {{< fa battery-half size=Huge >}}         |
-| `{{{< fa envelope title="An envelope" >}}}`        | {{< fa envelope title="An envelope" >}}   |
+| shortcode for icon              | icon                        |
+| ------------------------------- | --------------------------- |
+| `{{{< fa star >}}}`             | {{< fa star >}}             |
+| `{{{< fa image >}}}`            | {{< fa image >}}            |
+| `{{{< fa house >}}}`            | {{< fa house >}}            |
+| `{{{< fa binoculars >}}}`       | {{< fa binoculars >}}       |
+| `{{{< fa brands apple >}}}`     | {{< fa brands apple >}}     |
+| `{{{< fa brands microsoft >}}}` | {{< fa brands microsoft >}} |
+| `{{{< fa battery-half >}}}`     | {{< fa battery-half >}}     |
+| `{{{< fa earth-oceania >}}}`    | {{< fa earth-oceania >}}    |
+
+
+The `[additional args]` outlined above in the basic construction of the shortcode allow you to (1) define a size for the icon, and (2) add a 'title' to the icon.
+
+### Size options
+
+All of the examples shown previously use the display defaults (i.e., no extra arguments). However, the `size` argument can be used when you need to adjust the icon size. For HTML output, there are two types of sizing available: (1) literal sizing, and (2) relative sizing.
+
+#### Literal sizing of icons in HTML
+
+Literal sizing allows for specification of the icon in 'em' units. It uses the `"size=<1-10>x"` construction, giving us ten size options from `"1em"` to `"10em"`. Here is the `"battery-half"` icon at the `"2em"` size: {{< fa battery-half size=2x >}}.
+
+So you have feel for what the sizes look like when rendered, here is the `"star"` icon in that range of sizes:
+
+{{< fa star size=1x >}} {{< fa star size=2x >}} {{< fa star size=3x >}} {{< fa star size=4x >}} {{< fa star size=5x >}} {{< fa star size=6x >}} {{< fa star size=7x >}} {{< fa star size=8x >}} {{< fa star size=9x >}} {{< fa star size=10x >}}
+
+#### Relative sizing of icons in HTML
+
+Relative sizing involves changing from the 'current' font size to a different one in a relativistic manner. We can use any of these keywords for this (arranged from smallest to largest): `"2xs"`, `"xs"`, `"sm"`, `"lg"`, `"xl"`, `"2xl"`.
+
+Again, so we can understand what these sizes look like, here is the `"star"` icon with all of the relative sizes applied:
+
+{{< fa star size=2xs >}} {{< fa star size=xs >}} {{< fa star size=sm >}} {{< fa star size=lg >}} {{< fa star size=xl >}} {{< fa star size=2xl >}}
+
+If we were to change the text `font-size` to something very small (`"5px"`), the relative sizing of the Font Awesome icons would be correspondingly small.
+
+<span style='font-size: 5px'>small text {{< fa star size=2xs >}} {{< fa star size=xs >}} {{< fa star size=sm >}} {{< fa star size=lg >}} {{< fa star size=xl >}} {{< fa star size=2xl >}}</span>
+
+Note that after the closing of the `<span>` tag (with `</span>`), the text font size should go back to what it was before the span (in this case, the default font size). So, any icons being relatively sized after the span will reflect that default font size.
+
+Quarto is so packed full of features that you don't even have to use `<span>` tags either. You can use square brackets (`[`, `]`) to define the span and then add a CSS style declaration inside of a single set of curly braces.
+
+[{{< fa brands reddit >}}]{style="color: red; font-size: 3em;"}
+
+Yes, changing the size of a Font Awesome icon comes from changing the font size. Oh, and *color*. That's a great thing to set here since you **cannot** do it with the shortcode.
+
+### Adding a title
+
+A 'title' for a Font Awesome icon is something that is displayed on mouse hover (this is really a tooltip). Adding a title also enables the assistive feature of speaking the icon title when using a screen reader. To add a title to an icon we need to use the `title` argument. Let's do this with the `"battery-half"` icon, on its own line:
+
+{{< fa battery-half size=5x title="Battery: 50%">}}
+
+If you hover the mouse pointer over this large battery icon, you'll get a tooltip with the text `"Battery: 50%"`.
+
+## Font Awesome icons that can be used
+
+The set of Font Awesome icons that work with the `fontawesome` Quarto extension are the free icons from Font Awesome 5. You can use the Font Awesome site to explore the icons; this link will bring you there and filter the icons to the free set:
+
+https://fontawesome.com/search?o=r&m=free
+
+You can also peek inside the `_extensions/quarto-ext/fontawesome/css/all.css` file to get the 'real' list of icons supported. For example the `"meta"` icon is in the free-icon listing on the Font Awesome site, but not in the local `all.css` file. The result is a whole lotta nothin':
+
+{{< fa brands meta >}}
+
+Other icons like `"r-project"`, `"raspberry-pi"`, and `"reddit-square"` *are* found inside `all.css` but presumably because of a Lua bug, they don't render properly:
+
+{{< fa r-project >}} {{< fa raspberry-pi >}} {{< fa raspberry-pi >}}
+
+Depending on the state of the extension, you'll either see placeholder glyphs or perhaps the icons (if fixed) in the rendered HTML document. Bugs happen, and you can always report things like this in the Issues page for the extension:
+
+https://github.com/quarto-ext/fontawesome/issues
+
+Okay, but what if you **really need** to have an `"r-project"` icon shown? You can grab the `<i>` tag directly from the icon page for the icon. This was taken from the icon URL https://fontawesome.com/icons/r-project?f=brands&s=solid:
+
+<i class="fa-brands fa-r-project"></i>
+
+And if you want to style up this icon a bit, use a span with a style declaration!
+
+[<i class="fa-brands fa-r-project"></i>]{style="color: red; font-size: 3em; opacity: 0.75; text-shadow: 1px 1px 2px blue;"}
