@@ -25,7 +25,6 @@ We can use shortcodes to generate icons in a Markdown table. In the following ta
 | `{{{< fa battery-half >}}}`     | {{< fa battery-half >}}     |
 | `{{{< fa earth-oceania >}}}`    | {{< fa earth-oceania >}}    |
 
-
 The `[additional args]` outlined above in the basic construction of the shortcode allow you to (1) define a size for the icon, and (2) add a 'title' to the icon.
 
 ### Size options
