@@ -22,7 +22,6 @@ We can use shortcodes to generate icons in a Markdown table. In the following ta
 | `{{{< bi microsoft >}}}`        | {{< bi microsoft >}}        |
 | `{{{< bi image >}}}`            | {{< bi image >}}            |
 
-
 The `[additional args]` outlined above in the basic construction of the shortcode allow you to (1) define a size for the icon, (2) change the color of the icon, and (3) add a 'title' to the icon.
 
 ### Size options
