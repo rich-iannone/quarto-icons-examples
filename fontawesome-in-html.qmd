@@ -72,7 +72,7 @@ If you hover the mouse pointer over this large battery icon, you'll get a toolti
 
 The set of Font Awesome icons that work with the `fontawesome` Quarto extension are the free icons from Font Awesome 5. You can use the Font Awesome site to explore the icons; this link will bring you there and filter the icons to the free set:
 
-https://fontawesome.com/search?o=r&m=free
+<https://fontawesome.com/search?o=r&m=free>
 
 You can also peek inside the `_extensions/quarto-ext/fontawesome/css/all.css` file to get the 'real' list of icons supported. For example the `"meta"` icon is in the free-icon listing on the Font Awesome site, but not in the local `all.css` file. The result is a whole lotta nothin':
 
@@ -84,9 +84,9 @@ Other icons like `"r-project"`, `"raspberry-pi"`, and `"reddit-square"` *are* fo
 
 Depending on the state of the extension, you'll either see placeholder glyphs or perhaps the icons (if fixed) in the rendered HTML document. Bugs happen, and you can always report things like this in the Issues page for the extension:
 
-https://github.com/quarto-ext/fontawesome/issues
+<https://github.com/quarto-ext/fontawesome/issues>
 
-Okay, but what if you **really need** to have an `"r-project"` icon shown? You can grab the `<i>` tag directly from the icon page for the icon. This was taken from the icon URL https://fontawesome.com/icons/r-project?f=brands&s=solid:
+Okay, but what if you **really need** to have an `"r-project"` icon shown? You can grab the `<i>` tag directly from the icon page for the icon. This was taken from the icon URL <https://fontawesome.com/icons/r-project?f=brands&s=solid>:
 
 <i class="fa-brands fa-r-project"></i>
 
