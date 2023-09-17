@@ -1,0 +1,92 @@
+---
+format: html
+---
+
+This is an example of how to include the Bootstrap icons from the `bsicons` shortcode extension in an HTML article. The shortcode works by using this basic construction:
+
+`{{{< bi <icon-name> [additional args] >}}}`
+
+Note that if you're seeing the source version of this document (i.e., the .qmd file), the above has three curly braces on each side. That's a way to escape the shortcode syntax and when rendered: (1) one set of `{` & `}` characters will be stripped off (showing the actual shortcode syntax), and (2) the code within this pseudo-shortcode won't be executed. Also, the backticks in the source are needed for this to work (not including them results in that text not being visible in the rendered document).
+
+All of the icons from the Bootstrap Icons collection can be used. Here is the `"stars"` icon: {{< bi stars >}}. By default, it is sized match the inline text. The Spotify icon is next: {{< bi spotify >}}.
+
+We can use shortcodes to generate icons in a Markdown table. In the following table, the first column provides the escaped version of the shortcode (renders as the input syntax for the shortcode) and the second column actually generates icons.
+
+| shortcode for icon              | icon                        |
+| ------------------------------- | --------------------------- |
+| `{{{< bi box-seam >}}}`         | {{< bi box-seam >}}         |
+| `{{{< bi trophy >}}}`           | {{< bi trophy >}}           |
+| `{{{< bi x >}}}`                | {{< bi x >}}                |
+| `{{{< bi robot >}}}`            | {{< bi robot >}}            |
+| `{{{< bi phone >}}}`            | {{< bi phone >}}            |
+| `{{{< bi microsoft >}}}`        | {{< bi microsoft >}}        |
+| `{{{< bi image >}}}`            | {{< bi image >}}            |
+
+
+The `[additional args]` outlined above in the basic construction of the shortcode allow you to (1) define a size for the icon, (2) change the color of the icon, and (3) add a 'title' to the icon.
+
+### Size options
+
+All of the examples shown previously use the display defaults (i.e., no extra arguments). However, the `size` argument can be used when you need to adjust the icon size. Since this shortcode extension only works with HTML output, it allows for virtually any CSS length units to be used (e.g., `px`, `em`, `rem`, `vw`, `vh`, etc.).
+
+There are many ways to size something with CSS. Here is the `"stars"` icon sized to `"20px"`
+
+{{< bi stars size=20px >}}
+
+Here is `"stars"` at `"2em"`:
+
+{{< bi stars size=2em >}}
+
+You get the idea. There's much more information on the topic of size within the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/@page/size).
+
+### Color options
+
+Unlike the `fontawesome` shortcode extension, the `bsicons` extension has an argument to change the color of the icon (`color`). As with the `size` argument, any type of CSS color declaration (e.g., named colors, hexadecimal colors, RGB or HSL color models, etc.) can be used here.
+
+Here are some examples, each on their own line:
+
+{{< bi twitch color=lightseagreen >}}
+
+{{< bi stars color=hsl(15,80%,56%) >}}
+
+{{< bi windows color=#FF6088 >}}
+
+{{< bi alarm-fill color=blue >}}
+
+{{< bi ubuntu color=rgb(100,0,179) >}}
+
+{{< bi terminal-fill color=rgba(157,96,50,0.8) >}}
+
+Many options for color specification available. For addtional info this, have a look at the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/color). 
+
+### Adding a label
+
+A 'label' for a Bootstrap icon is something that is displayed on mouse hover (this is really a tooltip). Adding a label also enables the assistive feature of speaking the icon title when using a screen reader. To add a label to an icon we need to use the `label` argument. Let's do this with the `"alarm-fill"` icon, on its own line:
+
+{{< bi alarm-fill label="This is an alarm">}}
+
+If you hover the mouse pointer over this icon, you'll get a tooltip with the text `"This is an alarm"`.
+
+## Bootstrap icons that can be used
+
+All of the Bootstrap icons that work with the `bsicons` Quarto extension are viewable at this link:
+
+<https://icons.getbootstrap.com/#icons>
+
+You can also peek inside the `_extensions/shafayetShafee/bsicons/assets/css/all.css` file to get the list of icons supported. The icons come from the `v1.9.1` version of Bootstrap icons. This is, as of this writing, behind the latest release of the icon set.
+
+For example the `"cake"` icon is in the listing on the Bootstrap Icons site, but not in the local `all.css` file. The result is a whole lotta nothin':
+
+{{< bi cake >}}
+
+Really, the extension just needs to be updated to match the latest release. You can always file an issue to ask for type of update:
+
+<https://github.com/shafayetShafee/bsicons/issues>
+
+Okay, but what if you **really need** to have an `"cake"` icon shown? You can grab the `<svg>` tag directly from the icon page for the icon. This was taken from the icon URL <https://icons.getbootstrap.com/icons/cake/>:
+
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cake" viewBox="0 0 16 16"><path d="m7.994.013-.595.79a.747.747 0 0 0 .101 1.01V4H5a2 2 0 0 0-2 2v3H2a2 2 0 0 0-2 2v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a2 2 0 0 0-2-2h-1V6a2 2 0 0 0-2-2H8.5V1.806A.747.747 0 0 0 8.592.802l-.598-.79ZM4 6a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v.414a.911.911 0 0 1-.646-.268 1.914 1.914 0 0 0-2.708 0 .914.914 0 0 1-1.292 0 1.914 1.914 0 0 0-2.708 0A.911.911 0 0 1 4 6.414V6Zm0 1.414c.49 0 .98-.187 1.354-.56a.914.914 0 0 1 1.292 0c.748.747 1.96.747 2.708 0a.914.914 0 0 1 1.292 0c.374.373.864.56 1.354.56V9H4V7.414ZM1 11a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.793l-.354.354a.914.914 0 0 1-1.293 0 1.914 1.914 0 0 0-2.707 0 .914.914 0 0 1-1.292 0 1.914 1.914 0 0 0-2.708 0 .914.914 0 0 1-1.292 0 1.914 1.914 0 0 0-2.708 0 .914.914 0 0 1-1.292 0L1 11.793V11Zm11.646 1.854a1.915 1.915 0 0 0 2.354.279V15H1v-1.867c.737.452 1.715.36 2.354-.28a.914.914 0 0 1 1.292 0c.748.748 1.96.748 2.708 0a.914.914 0 0 1 1.292 0c.748.748 1.96.748 2.707 0a.914.914 0 0 1 1.293 0Z"/></svg>
+
+And if you want to style up this icon a bit, use a span with a style declaration!
+
+[<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cake" viewBox="0 0 16 16"><path d="m7.994.013-.595.79a.747.747 0 0 0 .101 1.01V4H5a2 2 0 0 0-2 2v3H2a2 2 0 0 0-2 2v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a2 2 0 0 0-2-2h-1V6a2 2 0 0 0-2-2H8.5V1.806A.747.747 0 0 0 8.592.802l-.598-.79ZM4 6a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v.414a.911.911 0 0 1-.646-.268 1.914 1.914 0 0 0-2.708 0 .914.914 0 0 1-1.292 0 1.914 1.914 0 0 0-2.708 0A.911.911 0 0 1 4 6.414V6Zm0 1.414c.49 0 .98-.187 1.354-.56a.914.914 0 0 1 1.292 0c.748.747 1.96.747 2.708 0a.914.914 0 0 1 1.292 0c.374.373.864.56 1.354.56V9H4V7.414ZM1 11a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.793l-.354.354a.914.914 0 0 1-1.293 0 1.914 1.914 0 0 0-2.707 0 .914.914 0 0 1-1.292 0 1.914 1.914 0 0 0-2.708 0 .914.914 0 0 1-1.292 0 1.914 1.914 0 0 0-2.708 0 .914.914 0 0 1-1.292 0L1 11.793V11Zm11.646 1.854a1.915 1.915 0 0 0 2.354.279V15H1v-1.867c.737.452 1.715.36 2.354-.28a.914.914 0 0 1 1.292 0c.748.748 1.96.748 2.708 0a.914.914 0 0 1 1.292 0c.748.748 1.96.748 2.707 0a.914.914 0 0 1 1.293 0Z"/></svg>]{style="color: red; opacity: 0.75;"}
