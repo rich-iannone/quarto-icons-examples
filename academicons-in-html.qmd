@@ -1,0 +1,62 @@
+---
+format: html
+---
+
+This is an example of how to include Academicons in an HTML article. The shortcode works by using this basic construction:
+
+`{{{< ai <icon-name> [additional args] >}}}`
+
+Note that if you're seeing the source version of this document (i.e., the .qmd file), the above has three curly braces on each side. That's a way to escape the shortcode syntax and when rendered: (1) one set of `{` & `}` characters will be stripped off (showing the actual shortcode syntax), and (2) the code within this pseudo-shortcode won't be executed. Also, the backticks in the source are needed for this to work (not including them results in that text not being visible in the rendered document).
+
+Here is the `"jstor"` icon: {{< ai jstor >}}. By default, it is sized match the inline text. The Open Access icon is next: {{< ai open-access >}}.
+
+We can use shortcodes to generate icons in a Markdown table. In the following table, the first column provides the escaped version of the shortcode (renders as the input syntax for the shortcode) and the second column actually generates icons.
+
+| shortcode for icon              | icon                        |
+| ------------------------------- | --------------------------- |
+| `{{{< ai jstor >}}}`            | {{< ai jstor >}}            |
+| `{{{< ai orcid >}}}`            | {{< ai orcid >}}            |
+| `{{{< ai inspire >}}}`          | {{< ai inspire >}}          |
+| `{{{< ai open-data >}}}`        | {{< ai open-data >}}        |
+
+The `[additional args]` outlined above in the basic construction of the shortcode allow you to (1) define a size for the icon, and (2) change the color of the icon.
+
+### Size options
+
+All of the examples shown previously use the display defaults (i.e., no extra arguments). However, the `size` argument can be used when you need to adjust the icon size. For HTML output, there are two types of sizing available: (1) literal sizing, and (2) relative sizing.
+
+#### Literal sizing of icons in HTML
+
+Literal sizing allows for specification of the icon in 'em' units. It uses the `"size=<1-10>x"` construction, giving us ten size options from `"1em"` to `"10em"`. Here is the `"jstor"` icon at the `"2em"` size: {{< ai jstor size=2x >}}.
+
+So you have feel for what the sizes look like when rendered, here is the `"jstor"` icon in that range of sizes:
+
+{{< ai jstor size=1x >}} {{< ai jstor size=2x >}} {{< ai jstor size=3x >}} {{< ai jstor size=4x >}} {{< ai jstor size=5x >}} {{< ai jstor size=6x >}} {{< ai jstor size=7x >}} {{< ai jstor size=8x >}} {{< ai jstor size=9x >}} {{< ai jstor size=10x >}}
+
+#### Relative sizing of icons in HTML
+
+Relative sizing involves changing from the 'current' font size to a different one in a relativistic manner. We can use any of these keywords for this (arranged from smallest to largest): `"2xs"`, `"xs"`, `"sm"`, `"lg"`, `"xl"`, `"2xl"`.
+
+Again, so we can understand what these sizes look like, here is the `"jstor"` icon with all of the relative sizes applied:
+
+{{< ai jstor size=2xs >}} {{< ai jstor size=xs >}} {{< ai jstor size=sm >}} {{< ai jstor size=lg >}} {{< ai jstor size=xl >}} {{< ai jstor size=2xl >}}
+
+If we were to change the text `font-size` to something very small (`"5px"`), the relative sizing of the Academicons would be correspondingly small.
+
+<span style='font-size: 5px'>small text {{< ai jstor size=2xs >}} {{< ai jstor size=xs >}} {{< ai jstor size=sm >}} {{< ai jstor size=lg >}} {{< ai jstor size=xl >}} {{< ai jstor size=2xl >}}</span>
+
+Note that after the closing of the `<span>` tag (with `</span>`), the text font size should go back to what it was before the span (in this case, the default font size). So, any icons being relatively sized after the span will reflect that default font size.
+
+Quarto is so packed full of features that you don't even have to use `<span>` tags either. You can use square brackets (`[`, `]`) to define the span and then add a CSS style declaration inside of a single set of curly braces.
+
+[{{< ai orcid >}}]{style="color: red; font-size: 3em;"}
+
+Yes, changing the size of an Academicon comes from changing the font size.
+
+## Icons that can be used
+
+The set of icons that work with the `academicons` Quarto extension are all of the icons from the Academicons icon set. You can use the Academicons site to explore the icons:
+
+<https://jpswalsh.github.io/academicons/>
+
+You can also peek inside the `_extensions/schocastics/academicons/assets/css/all.css` file to get the 'real' list of icons supported. This reason you might do this is because the set of icons supported by the extension may trail what's in the current release.
