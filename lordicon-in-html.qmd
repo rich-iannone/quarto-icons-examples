@@ -1,0 +1,102 @@
+---
+format: html
+---
+
+This is an example of how to include Lordicon icons, lordicon(s), in an HTML article. The shortcode works by using this basic construction:
+
+`{{{< li <icon-name> [additional args] >}}}`
+
+Note that if you're seeing the source version of this document (i.e., the .qmd file), the above has three curly braces on each side. That's a way to escape the shortcode syntax and when rendered: (1) one set of `{` & `}` characters will be stripped off (showing the actual shortcode syntax), and (2) the code within this pseudo-shortcode won't be executed. Also, the backticks in the source are needed for this to work (not including them results in that text not being visible in the rendered document).
+
+### Finding the code for the icon
+
+It's not incredibly easy finding the icon *code* for this shortcode. There are a few things you need to know, and I'm going break that down right here. First, get to the Lordicon website:
+
+<https://lordicon.com>
+
+Hit the `Explore Library` button. You'll now get to a page where icons are split into different categories. Choose any of these to start a search. Next, only free icons can be used with this shortcode. You might as well select the *Free Icons* filter on the left-hand side. Now you'll see all the free icons for that category (you can navigate between categories and you'll still be in the *Free Icons* view). Furthermore, you can choose a *style* for the icon (possiblities are `flat`, `gradient`, `lineal`, and `outline`).
+
+Click on any icon, I'm choosing *Confetti* (in the *Popular* set). You'll set the icon information pop up on the right. Hit the `</> HTML` button on the bottom of that info listing and a popover will appear. What you need is the **eight-letter code**, and, you need to transpose that to lowercase. Now, you finally have the code you need to successfully use the icon in the shortcode.
+
+Let's celebrate by using that *Confetti* icon (`"xxdqfhbi"`).
+
+{{< li xxdqfhbi >}} 
+
+Each style of will have an entirely different eight-letter code.
+
+### Animation through triggers
+
+Let's animate! The `trigger` argument controls the icon's animation type. When using the `loop` or `loop-on-hover` triggers, you can also set an optional `delay` (in ms) between loops.
+
+| shortcode for icon                   | icon                             |
+|--------------------------------------|----------------------------------|
+| `{{{< li xxdqfhbi >}}}`              | {{< li xxdqfhbi >}}              |
+| `{{{< li xxdqfhbi trigger=click >}}}` | {{< li xxdqfhbi trigger=click >}} |
+| `{{{< li xxdqfhbi trigger=hover >}}}` | {{< li xxdqfhbi trigger=hover >}} |
+| `{{{< li xxdqfhbi trigger=loop >}}}` | {{< li xxdqfhbi trigger=loop >}} |
+| `{{{< li xxdqfhbi trigger=loop delay=1000 >}}}` | {{< li xxdqfhbi trigger=loop delay=1000 >}} |
+| `{{{< li xxdqfhbi trigger=loop-on-hover >}}}` | {{< li xxdqfhbi trigger=loop-on-hover >}} |
+| `{{{< li xxdqfhbi trigger=loop-on-hover delay=1000 >}}}` | {{< li xxdqfhbi trigger=loop-on-hover delay=1000 >}} |
+| `{{{< li xxdqfhbi trigger=morph >}}}` | {{< li xxdqfhbi trigger=morph >}} |
+| `{{{< li xxdqfhbi trigger=boomerang >}}}` | {{< li xxdqfhbi trigger=boomerang >}} |
+
+### Speed
+
+The `speed` argument controls how quickly the icon's animation plays. Let's use a different style for the *Confetti* icon here (code obtained from the website using the methodology in the first section).
+
+| Shortcode                            | Icon                             |
+|--------------------------------------|----------------------------------|
+| `{{{< li lupuorrc trigger=loop speed=0.5 >}}}`   | {{< li lupuorrc trigger=loop speed=0.5 >}}   |
+| `{{{< li lupuorrc trigger=loop speed=1.0 >}}}`   | {{< li lupuorrc trigger=loop speed=1.0 >}}   |
+| `{{{< li lupuorrc trigger=loop speed=2.0 >}}}`   | {{< li lupuorrc trigger=loop speed=2.0 >}}   |
+
+### Colors
+
+The `colors` argument controls the icon's coloring. Outline icons typically have just a primary and secondary color, but flat and lineal icons can have many more. Each color should be given in `rank:color` format (where ranks are primary, secondary, tertiary, etc.) and multiple colors should be separated by commas. Colors can be given in CSS color names or as hexadecimal colors.
+
+| shortcode for icon                   | icon                             |
+|--------------------------------------|----------------------------------|
+| `{{{< li lupuorrc >}}}`              | {{< li lupuorrc >}}              |
+| `{{{< li lupuorrc colors=primary:gold >}}}`   | {{< li lupuorrc colors=primary:gold >}}   |
+| `{{{< li lupuorrc colors=primary:gray,secondary:orange >}}}`   | {{< li lupuorrc colors=primary:gray,secondary:orange >}}   |
+| `{{{< li lupuorrc colors=primary:#4030e8,secondary:#ee66aa >}}}`   | {{< li lupuorrc colors=primary:#4030e8,secondary:#ee66aa >}}   |
+
+### Stroke
+
+The `stroke` argument controls how thick the lines in an icon are.
+
+| shortcode for icon                   | icon                             |
+|--------------------------------------|----------------------------------|
+| `{{{< li lupuorrc stroke=50 >}}}`    | {{< li lupuorrc stroke=50 >}}    |
+| `{{{< li lupuorrc stroke=100 >}}}`   | {{< li lupuorrc stroke=100 >}}   |
+| `{{{< li lupuorrc stroke=150 >}}}`   | {{< li lupuorrc stroke=150 >}}   |
+
+### Scale
+
+The `scale` icon controls how large or zoomed in the icon is.
+
+| shortcode for icon                   | icon                             |
+|--------------------------------------|----------------------------------|
+| `{{{< li lupuorrc scale=25 >}}}`     | {{< li lupuorrc scale=25 >}}     |
+| `{{{< li lupuorrc scale=50 >}}}`     | {{< li lupuorrc scale=50 >}}     |
+| `{{{< li lupuorrc scale=100 >}}}`    | {{< li lupuorrc scale=100 >}}    |
+
+### Axis X
+
+The `x` arg controls the horizontal position of the center of the icon.
+
+| shortcode for icon               | icon                       |
+|----------------------------------|----------------------------|
+| `{{{< li lupuorrc x=25 >}}}`     | {{< li lupuorrc x=25 >}}   |
+| `{{{< li lupuorrc x=50 >}}}`     | {{< li lupuorrc x=50 >}}   |
+| `{{{< li lupuorrc x=100 >}}}`    | {{< li lupuorrc x=100 >}}  |
+
+### Axis Y
+
+The `y` arg controls the vertical position of the center of the icon.
+
+| shortcode for icon               | icon                       |
+|----------------------------------|----------------------------|
+| `{{{< li lupuorrc y=25 >}}}`     | {{< li lupuorrc y=25 >}}   |
+| `{{{< li lupuorrc y=50 >}}}`     | {{< li lupuorrc y=50 >}}   |
+| `{{{< li lupuorrc y=100 >}}}`    | {{< li lupuorrc y=100 >}}  |
