@@ -1,0 +1,84 @@
+---
+format: html
+---
+
+This is an example of how to include Material Icons from the `material-icons` shortcode extension in an HTML article. The shortcode works by using this basic construction:
+
+`{{{< mi <icon-name> [additional args] >}}}`
+
+Note that if you're seeing the source version of this document (i.e., the .qmd file), the above has three curly braces on each side. That's a way to escape the shortcode syntax and when rendered: (1) one set of `{` & `}` characters will be stripped off (showing the actual shortcode syntax), and (2) the code within this pseudo-shortcode won't be executed. Also, the backticks in the source are needed for this to work (not including them results in that text not being visible in the rendered document).
+
+All of the icons from the Material Icons collection can be used. Here is the `"bar_chart"` icon: {{< mi bar_chart >}}.
+
+By default, it is sized match the inline text. The `"insights"` icon is next: {{< mi insights >}}.
+
+We can use shortcodes to generate icons in a Markdown table. In the following table, the first column provides the escaped version of the shortcode (renders as the input syntax for the shortcode) and the second column actually generates icons.
+
+| shortcode for icon              | icon                        |
+| ------------------------------- | --------------------------- |
+| `{{{< mi account_circle >}}}`   | {{< mi account_circle >}}   |
+| `{{{< mi verified_user >}}}`    | {{< mi verified_user >}}    |
+| `{{{< mi assignment >}}}`       | {{< mi assignment >}}       |
+
+
+The `[additional args]` outlined above in the basic construction of the shortcode allow you to (1) define a size for the icon, (2) change the icon type, (3) change the color of the icon, and (4) define a CSS class for the icon.
+
+### Size options
+
+The icons in the font can be scaled to any size, in accordance with [material design icons guidelines](https://www.google.com/design/spec/iconography/system-icons.html). However, it is recommended that the icons to be shown in either `"18px"`, `"24px"`, `"36px"` or `"48px"`. The default is `"24px"`. All of the examples shown previously use the display defaults (i.e., no extra arguments). However, the `size` argument can be used when you need to adjust the icon size. Since this shortcode extension only works with HTML output, it allows for virtually any CSS length units to be used (e.g., `px`, `em`, `rem`, `vw`, `vh`, etc.).
+
+There are many ways to size something with CSS. Here is the `"assignment"` icon sized to `"20px"`:
+
+{{< mi assignment size=20px >}}
+
+Here is `"assignment"` at `"2em"`:
+
+{{< mi assignment size=2em >}}
+
+You get the idea. There's much more information on the topic of size within the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/@page/size).
+
+### Color options
+
+You can style a Material icon in virtually any color. There are styling guidelines available at the [material design icons guidelines](https://www.google.com/design/spec/iconography/system-icons.html) page; with active icons they recommend using either black at 54% opacity or white at 100% opacity when displaying these on light or dark backgrounds, respectively. If an icon is disabled or inactive, using black at 26% or white at 30% for light and dark backgrounds, respectively.
+
+You can use predefined CSS classes `"md-dark"`, `"md-light"`, or `"md-inactive"`. Pass one of these classes to the shortcode using `class` keyword argument. To pass multiple classes, pass them as space separated and wrapped within quotes.
+
+| shortcode for icon                                | preview in white background                     |
+|---------------------------------------------------|-------------------------------------------------|
+| `{{{< mi insights class=md-dark >}}}`               | {{< mi insights class=md-dark >}}               |
+| `{{{< mi insights class="md-dark md-inactive" >}}}` | {{< mi insights class="md-dark md-inactive" >}} |
+
+You can also provide any valid CSS color using the `color` keyword argument. To specify a color for icons, you can use [named colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#named_colors) (i.e., `red`, `cornflowerblue`, etc), hexadecimal values, or color computed through the [RGB color model](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb_color_model) or the [HSL color model](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl_color_model).
+
+Here are some examples of that:
+
+| shortcode for icon                                     | icon                                                |
+|--------------------------------------------------------|----------------------------------------------------|
+| `{{{< mi bubble_chart color=cornflowerblue >}}}`         | {{< mi bubble_chart color=cornflowerblue >}}       |
+| `{{{< mi bubble_chart color=#E86033 >}}}`                | {{< mi bubble_chart color=#E86033 >}}              |
+| `{{{< mi bubble_chart color=rgb(232,96,51) >}}}`         | {{< mi bubble_chart color=rgb(132,96,81) >}}       |
+| `{{{< mi bubble_chart color=rgba(232,96,51,1) >}}}`      | {{< mi bubble_chart color=rgba(132,196,151,1) >}}    |
+| `{{{< mi bubble_chart color=hsl(15,80%,56%) >}}}`        | {{< mi bubble_chart color=hsl(25,50%,56%) >}}      |
+| `{{{< mi bubble_chart color=hsla(15,80%,56%,360) >}}}`   | {{< mi bubble_chart color=hsla(85,30%,56%,360) >}} |
+
+## Types
+
+Material icons comes in five types. These are: (1) `filled` (the default used for the shortcode), (2) `outlined`, (3) `sharp`, (4) `two_tone`, and (5) `round`. You can provide this keyword as the second argument to the shortcode (after the icon name).
+
+| type       | shortcode for icon                   | icon                               |
+|------------|--------------------------------------|------------------------------------|
+| `filled`   | `{{{< mi analytics >}}}`               | {{< mi analytics >}}               |
+| `outlined` | `{{{< mi analytics type=outlined >}}}` | {{< mi analytics type=outlined >}} |
+| `tow_tone` | `{{{< mi analytics type=two_tone >}}}` | {{< mi analytics type=two_tone >}} |
+| `sharp`    | `{{{< mi analytics type=sharp >}}}`    | {{< mi analytics type=sharp >}}    |
+| `round`    | `{{{< mi analytics type=round >}}}`    | {{< mi analytics type=round >}}    |
+
+## Material icons that can be used
+
+All of the Material icons that work with the `material-icons` Quarto extension are viewable at this link:
+
+<https://fonts.google.com/icons>
+
+You can also peek inside the `_extensions/shafayetShafee/material-icons/assets/css/all.css` file to get the list of icons supported. That CSS file does not display the version of the Material Icons set used. If you find that icons listed at the aforementioned site do not work with the extension, it may be that the extension just needs to be updated to match the latest release. You can always file an issue to ask for type of update:
+
+<https://github.com/shafayetShafee/material-icons/issues>
