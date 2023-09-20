@@ -1,0 +1,70 @@
+---
+format: html
+---
+
+This is an example of how to include Iconify icons in an HTML article. The shortcode works by using this basic construction:
+
+`{{{< iconify <set> <icon-name> [additional args] >}}}`
+
+Note that if you're seeing the source version of this document (i.e., the .qmd file), the above has three curly braces on each side. That's a way to escape the shortcode syntax and when rendered: (1) one set of `{` & `}` characters will be stripped off (showing the actual shortcode syntax), and (2) the code within this pseudo-shortcode won't be executed. Also, the backticks in the source are needed for this to work (not including them results in that text not being visible in the rendered document).
+
+Any of the icons from Iconify `v1.0.7` can be used. Icons are split into sets and the default set is `"fluent-emoji"`. Explore all of the icons at:
+
+<https://icon-sets.iconify.design>
+
+Here is the `"exploding-head"` icon: {{< iconify exploding-head >}}. By default, it is sized match the inline text. The first place medal from the `"twemoji"` set is next: {{< iconify twemoji 1st-place-medal >}}.
+
+We can use shortcodes to generate icons in a Markdown table. In the following table, the first column provides the escaped version of the shortcode (renders as the input syntax for the shortcode) and the second column actually generates icons.
+
+| shortcode for icon                   | icon                            |
+| ------------------------------------ | ------------------------------- |
+| `{{{< iconify axe >}}}`              | {{< iconify axe >}}             |
+| `{{{< iconify chart-increasing >}}}` | {{< iconify chart-increasing >}} |
+| `{{{< iconify house >}}}`            | {{< iconify house >}}            |
+| `{{{< iconify worried-face >}}}`     | {{< iconify worried-face >}}     |
+| `{{{< iconify tdesign address-book >}}}` | {{< iconify tdesign address-book >}}  |
+| `{{{< iconify game-icons whistle >}}}` | {{< iconify game-icons whistle >}} |
+| `{{{< iconify solar airbuds-case-open-outline >}}}`     | {{< iconify solar airbuds-case-open-outline >}}     |
+| `{{{< iconify skill-icons mastodon-light >}}}`    | {{< iconify skill-icons mastodon-light >}}    |
+
+The `[additional args]` outlined above in the basic construction of the shortcode allow you to (1) define a size for the icon, and (2) add a 'title' to the icon.
+
+### Size options
+
+All of the examples shown previously use the display defaults (i.e., no extra arguments). However, the `size` argument can be used when you need to adjust the icon size. For HTML output, there are two types of sizing available: (1) literal sizing, and (2) relative sizing.
+
+#### Literal sizing of icons in HTML
+
+Literal sizing allows for specification of the icon in 'em' units. It uses the `"size=<1-10>x"` construction, giving us ten size options from `"1em"` to `"10em"`. Here is the `"battery-half"` icon at the `"2em"` size: {{< iconify house size=2x >}}.
+
+So you have feel for what the sizes look like when rendered, here is the `"star"` icon in that range of sizes:
+
+{{< iconify house size=1x >}} {{< iconify house size=2x >}} {{< iconify house size=3x >}} {{< iconify house size=4x >}} {{< iconify house size=5x >}} {{< iconify house size=6x >}} {{< iconify house size=7x >}} {{< iconify house size=8x >}} {{< iconify house size=9x >}} {{< iconify house size=10x >}}
+
+#### Relative sizing of icons in HTML
+
+Relative sizing involves changing from the 'current' font size to a different one in a relativistic manner. We can use any of these keywords for this (arranged from smallest to largest): `"2xs"`, `"xs"`, `"sm"`, `"lg"`, `"xl"`, `"2xl"`.
+
+Again, so we can understand what these sizes look like, here is the `"star"` icon with all of the relative sizes applied:
+
+{{< iconify house size=2xs >}} {{< iconify house size=xs >}} {{< iconify house size=sm >}} {{< iconify house size=lg >}} {{< iconify house size=xl >}} {{< iconify house size=2xl >}}
+
+If we were to change the text `font-size` to something very small (`"5px"`), the relative sizing of the icons would be correspondingly small.
+
+<span style='font-size: 5px'>small text {{< iconify house size=2xs >}} {{< iconify house size=xs >}} {{< iconify house size=sm >}} {{< iconify house size=lg >}} {{< iconify house size=xl >}} {{< iconify house size=2xl >}}</span>
+
+Note that after the closing of the `<span>` tag (with `</span>`), the text font size should go back to what it was before the span (in this case, the default font size). So, any icons being relatively sized after the span will reflect that default font size.
+
+Quarto is so packed full of features that you don't even have to use `<span>` tags either. You can use square brackets (`[`, `]`) to define the span and then add a CSS style declaration inside of a single set of curly braces.
+
+[{{< iconify house >}}]{style="color: red; font-size: 3em;"}
+
+Yes, changing the size of an icon comes from changing the font size. Oh, and *color*. That's a great thing to set here since you **cannot** do it with the shortcode.
+
+### Adding a title
+
+A 'title' for an icon is something that is displayed on mouse hover (this is really a tooltip). Adding a title also enables the assistive feature of speaking the icon title when using a screen reader. To add a title to an icon we need to use the `title` argument. Let's do this with the `"house"` icon, on its own line:
+
+{{< iconify house size=5x title="This is my house">}}
+
+If you hover the mouse pointer over this large battery icon, you'll get a tooltip with the text `"This is my house"`.
