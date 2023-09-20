@@ -5,7 +5,7 @@
 
 </div>
 
-# Examples on Using Quarto Shortcodes to Generate Icons
+# Using Quarto Shortcodes to Generate Icons
 
 Quarto has *a lot* of extensions. The ones that I feel deserve some focused attention is the set of shortcode extensions that produce icons. There are quite a few good ones so far! This little repository provides examples you can use for these high-quality extensions:
 
