@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="http://creativecommons.org/publicdomain/zero/1.0/"><img src="https://licensebuttons.net/l/zero/1.0/80x15.png" alt="License: CC0-1.0" /></a>
+<a href="http://creativecommons.org/publicdomain/zero/1.0/"><img src="https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg" alt="License: CC0-1.0" /></a>
 <a href="https://www.contributor-covenant.org/version/2/0/code_of_conduct/"><img src="https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg" alt="Contributor Covenant" /></a>
 
 </div>
