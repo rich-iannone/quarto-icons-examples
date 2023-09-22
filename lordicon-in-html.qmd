@@ -16,13 +16,13 @@ It's not incredibly easy finding the icon *code* for this shortcode. There are a
 
 Hit the `Explore Library` button. You'll now get to a page where icons are split into different categories. Choose any of these to start a search. Next, only free icons can be used with this shortcode. You might as well select the *Free Icons* filter on the left-hand side. Now you'll see all the free icons for that category (you can navigate between categories and you'll still be in the *Free Icons* view). Furthermore, you can choose a *style* for the icon (possiblities are `flat`, `gradient`, `lineal`, and `outline`).
 
-Click on any icon, I'm choosing *Confetti* (in the *Popular* set). You'll set the icon information pop up on the right. Hit the `</> HTML` button on the bottom of that info listing and a popover will appear. What you need is the **eight-letter code**, and, you need to transpose that to lowercase. Now, you finally have the code you need to successfully use the icon in the shortcode.
+Click on any icon, I'm choosing *Confetti* (in the *Popular* set). You'll see the icon information pop up on the right. Hit the `</> HTML` button on the bottom of that info listing and a popover will appear. What you need is the **eight-letter code**, and, you need to transpose that to lowercase as using uppercase letters *won't work* :( . Now you finally have the code you need to successfully use the icon in the shortcode!
 
-Let's celebrate by using that *Confetti* icon (`"xxdqfhbi"`).
+Let's celebrate by using that *Confetti* icon (which has the code: `"xxdqfhbi"`).
 
 {{< li xxdqfhbi >}} 
 
-Each style of will have an entirely different eight-letter code.
+Each style of icon (`flat`, `gradient`, etc.) will have an entirely different eight-letter code.
 
 ### Animation through triggers
 
@@ -42,7 +42,7 @@ Let's animate! The `trigger` argument controls the icon's animation type. When u
 
 ### Speed
 
-The `speed` argument controls how quickly the icon's animation plays. Let's use a different style for the *Confetti* icon here (code obtained from the website using the methodology in the first section).
+The `speed` argument controls how quickly the icon's animation plays. Let's use a different style for the *Confetti* icon here (code obtained from the Lordicon website using the methodology described in the first section).
 
 | Shortcode                            | Icon                             |
 |--------------------------------------|----------------------------------|
@@ -52,7 +52,7 @@ The `speed` argument controls how quickly the icon's animation plays. Let's use 
 
 ### Colors
 
-The `colors` argument controls the icon's coloring. Outline icons typically have just a primary and secondary color, but flat and lineal icons can have many more. Each color should be given in `rank:color` format (where ranks are primary, secondary, tertiary, etc.) and multiple colors should be separated by commas. Colors can be given in CSS color names or as hexadecimal colors.
+The `colors` argument controls the icon's coloring. Outline icons typically have just a primary and secondary color, but `"flat"` and `"lineal"` icons can have many more. Each color should be given in `rank:color` format (where ranks are `"primary"`, `"secondary"`, `"tertiary"`, etc.) and multiple colors should be separated by commas. Colors can be given as CSS color names or as hexadecimal colors.
 
 | shortcode for icon                   | icon                             |
 |--------------------------------------|----------------------------------|
@@ -63,7 +63,7 @@ The `colors` argument controls the icon's coloring. Outline icons typically have
 
 ### Stroke
 
-The `stroke` argument controls how thick the lines in an icon are.
+The `stroke` argument controls how thick the lines in an icon are. You need to supply a number; adjust it until the icon looks right! 
 
 | shortcode for icon                   | icon                             |
 |--------------------------------------|----------------------------------|
